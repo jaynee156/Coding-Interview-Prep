@@ -1,0 +1,19 @@
+//leetcode question link : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/578/
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        int i;
+        if (nums.size()<2)
+            return false;
+        else{
+            sort(nums.begin(), nums.end());
+            for(i=0; i < nums.size()-1; i++)
+            {
+                if(nums[i]==nums[i+1])
+                    return true;
+            }
+            return false;
+        }
+    }
+};
