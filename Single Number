@@ -1,0 +1,20 @@
+//Leetcode Problem URL : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/549/
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int i;
+        unordered_set <int> hashmap;
+        if(nums.size()==1)
+            return nums[0];
+        else
+        {
+           for(i=0;i<nums.size();i++)
+           {
+                if (hashmap.find(nums[i]) == hashmap.end())
+                    hashmap.insert(nums[i]);
+               else hashmap.erase(nums[i]);
+           }
+            return *(hashmap.begin());
+        }
+    }
+};
