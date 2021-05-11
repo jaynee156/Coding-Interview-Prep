@@ -1,0 +1,17 @@
+//Leetcode Problem URL : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int j;
+        int temp[nums.size()];
+        if (k>0 && nums.size()>1)
+        {
+            for(j=0; j<nums.size(); j++)
+            {
+                temp[(j+k)%nums.size()]=nums[j];
+            }
+            for(j=0;j<nums.size();j++)
+                nums[j]=temp[j];
+        }
+    }
+};
