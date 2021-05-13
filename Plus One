@@ -1,0 +1,25 @@
+Leetcode Problem : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/559/
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int i, n=digits.size(), x, sum;
+        digits[n-1]=digits[n-1]+1;
+        i=n-1;
+        sum=digits[n-1];
+        while(sum>9 && i>0)
+        {
+            x=digits[i]/10;
+            digits[i]=digits[i]%10;
+            i--;
+            digits[i]=digits[i]+x;
+            sum=digits[i];
+        }
+        if(i==0 && sum>9)
+        {
+            x=digits[0]/10;
+            digits[0]=digits[0]%10;
+            digits.insert(digits.begin(),x);
+        }
+        return digits;
+    }
+};
