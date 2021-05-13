@@ -1,0 +1,27 @@
+Leetcode Problem : https://leetcode.com/submissions/detail/492747234/?from=explore&item_id=546
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int i,j,n=nums.size(),index;
+        
+        vector<int> result,nos;
+        nos=nums;
+        sort(nos.begin(),nos.end());
+        for(i=0,j=n-1;i<j;)
+        {
+            if(nos[i]+nos[j]==target)
+                break;
+            else if(nos[i]+nos[j]>target)
+                j--;
+            else i++;
+        }
+        index = find(nums.begin(),nums.end(),nos[i])-nums.begin();
+        result.push_back(index);
+        if(nos[i]==nos[j])
+            index= find((nums.begin()+index+1),nums.end(),nos[j])-nums.begin() ;
+        else
+            index = find(nums.begin(),nums.end(),nos[j])-nums.begin();
+        result.push_back(index);
+        return result;
+    }
+};
