@@ -1,0 +1,71 @@
+Leetcode Link : https://leetcode.com/submissions/detail/493196220/?from=explore&item_id=769
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        int i,j,k1=0,k2=0;
+        unordered_set <char> digits;
+
+        for(i=0;i<9;i++)
+        {
+            for(j=0;j<9;j++)
+            {
+                if(board[i][j] != '.')
+                {
+                    if(digits.find(board[i][j])==digits.end())
+                        digits.insert(board[i][j]);
+                    else
+                        return false;
+                }
+            }
+            digits.clear();
+        }
+        
+        digits.clear();
+        
+        for(i=0;i<9;i++)
+        {
+            for(j=0;j<9;j++)
+            {
+                if(board[j][i] != '.')
+                {
+                    if(digits.find(board[j][i])==digits.end())
+                        digits.insert(board[j][i]);
+                else
+                    return false;
+                }
+            }
+            digits.clear();
+        }
+        digits.clear();
+        
+        while(k1 <=6)
+        {
+            for(i=0+k1;i<3+k1;i++)
+            {
+                for(j=0+k2;j<3+k2;j++)
+                {
+                
+                if(board[j][i] != '.')
+                {
+                    if(digits.find(board[j][i])==digits.end())
+                        digits.insert(board[j][i]);
+                else
+                    return false;
+                }
+            
+                }
+
+            }
+            digits.clear();
+            k2+=3;
+            if(k2==9)
+            {
+                k2=0;
+                k1+=3;
+            }
+            
+        }
+        
+        return true;      
+    }
+};
