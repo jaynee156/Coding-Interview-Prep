@@ -1,0 +1,32 @@
+Leetcode Link : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/880/ 
+class Solution {
+public:
+    int reverse(int x) {
+        int rem,rev=0;
+        double temp;
+        while(x)
+        {
+            rem=x%10;
+            x=x/10;
+            if(rev>INT_MAX)
+            {
+                rev=0;
+                break;
+            }
+            else
+            {
+                temp=rev;
+                temp=temp*10;
+                if(temp>INT_MAX || temp<INT_MIN)
+                {
+                    rev=0;
+                    break;
+                }
+                else
+                   rev=rev*10+rem; 
+            }
+                
+        }
+        return rev;
+    }
+};
