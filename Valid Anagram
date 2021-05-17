@@ -1,0 +1,19 @@
+Leetcode Link : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/882/ 
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int i,m=s.size(),n=t.size();
+        if(m!=n)
+            return false;
+        else{
+            sort(s.begin(),s.end());
+            sort(t.begin(),t.end());
+            for(i=0;i<n;i++)
+            {
+                if(s[i]!=t[i])
+                    return false;
+            }
+            return true;
+        }
+    }
+};
