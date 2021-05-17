@@ -1,0 +1,28 @@
+Leetcode Link : https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/ 
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int i,j,n=s.size();
+
+        for(i=0;i<n;i++)
+        {
+    
+            if(s[i]>='A' && s[i]<= 'Z')
+                s[i]=tolower(s[i]);
+            else if(!( (s[i]>='a' && s[i]<='z') || (s[i]>='A' && s[i]<='Z') || (s[i]>='0' && s[i]<='9') ) )
+            {
+                s.erase(s.begin()+i);
+                i--;
+                n--;
+            }
+        }
+        
+
+        for(i=0,j=s.size()-1;i<=j;i++,j--)
+        {
+            if(s[i]!=s[j])
+                return false;
+        }
+        return true;
+    }
+};
